@@ -1,0 +1,22 @@
+OKNO 1: Uruchomienie serwera graficznego
+1. aktywacja środowiska (u mnie funnybirds-env)
+conda activate funnybirds-env
+2. wejście do repo do folderu render
+cd C:\Users\zawol\repos\FunnyBirds-wb2\render
+3. uruchomienie serwera
+node server.js
+Powinno być "Example app listening..."
+Pozostawiamy to okno otwarte i otwieramy nowe
+
+OKNO 2: Generowanie danych
+1. to co poprzednio
+conda activate funnybirds-env
+cd C:\Users\zawol\repos\FunnyBirds-wb2\render
+2. Generujemy json
+python framework.py
+3. Generujemy zdjęcia
+UWAGA!!! ścieżka --root_path oraz liczby --nr_classes i --nr_samples_per_class mają być dokładnie takie same jak te wpisane w pliku framework.py:
+python create_dataset.py --mode train --nr_classes 3 --nr_samples_per_class 10 --root_path ./testy_ABC --create_classes_json --render_dataset
+4. Trenowanie
+Trzeba zmienić DATA_DIR w pliku train_resnet.py na taki w którym zapisano zdjęcia czyli np. DATA_DIR = './testy_ABC/FunnyBirds/train'
+python train_resnet.py
