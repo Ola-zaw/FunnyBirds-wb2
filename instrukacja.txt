@@ -16,7 +16,7 @@ cd C:\Users\zawol\repos\FunnyBirds-wb2\render
 python framework.py
 3. Generujemy zdjęcia
 UWAGA!!! ścieżka --root_path oraz liczby --nr_classes i --nr_samples_per_class mają być dokładnie takie same jak te wpisane w pliku framework.py:
-python create_dataset.py --mode train --nr_classes 3 --nr_samples_per_class 10 --root_path ./testy_ABC --create_classes_json --render_dataset
+python create_dataset.py --mode train --nr_classes 3 --nr_samples_per_class 1000 --root_path ./testy_hier --create_classes_json --render_dataset
 4. Trenowanie
 Trzeba zmienić DATA_DIR w pliku train_resnet.py na taki w którym zapisano zdjęcia czyli np. DATA_DIR = './testy_ABC/FunnyBirds/train'
 python train_resnet.py

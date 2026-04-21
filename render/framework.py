@@ -93,7 +93,7 @@ def generate_json_dataset(dependent_features, frozen_features, samples_per_class
 # =====================================================================
 
 NUM_CLASSES = 3
-SAMPLES_PER_CLASS = 25
+SAMPLES_PER_CLASS = 1000
 EXPERIMENT_FOLDER = "./testy_hier"
 
 # SCENARIUSZ 0: A (0), B (1) i C (2)
