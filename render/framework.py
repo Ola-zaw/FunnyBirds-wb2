@@ -92,9 +92,9 @@ def generate_json_dataset(dependent_features, frozen_features, samples_per_class
 # Scenariusze
 # =====================================================================
 
-NUM_CLASSES = 3
+NUM_CLASSES = 4
 SAMPLES_PER_CLASS = 1000
-EXPERIMENT_FOLDER = "./testy_hier"
+EXPERIMENT_FOLDER = "./testy_nzal"
 
 # SCENARIUSZ 0: A (0), B (1) i C (2)
 # scenario_config = {
@@ -114,16 +114,16 @@ EXPERIMENT_FOLDER = "./testy_hier"
 # Klasa 1 (AB): Dziób 0, Nogi 1
 # Klasa 2 (BA): Dziób 1, Nogi 0
 # Klasa 3 (BB): Dziób 1, Nogi 1
-# scenario_config = {
-#     'beak_model': [0, 0, 1, 1], 
-#     'foot_model': [0, 1, 0, 1], 
-#     'beak_color': [-1],
-#     'eye_model':  [-1], 
-#     'tail_model': [-1], 
-#     'tail_color': [-1], 
-#     'wing_model': [-1], 
-#     'wing_color': [-1]
-# }
+scenario_config = {
+    'beak_model': [0, 0, 1, 1], 
+    'foot_model': [0, 1, 0, 1], 
+    'beak_color': [-1],
+    'eye_model':  [-1], 
+    'tail_model': [-1], 
+    'tail_color': [-1], 
+    'wing_model': [-1], 
+    'wing_color': [-1]
+}
 
 # SCENARIUSZ 2: 100% WYNIKANIE (Dziób determinuje nogi, 2 klasy)
 # Klasa 0 (AA): Dziób 0 zawsze z Nogami 0
@@ -143,16 +143,16 @@ EXPERIMENT_FOLDER = "./testy_hier"
 # Klasa 0 (AA): Dziób 0, Nogi 0
 # Klasa 1 (BA): Dziób 1, Nogi 0
 # Klasa 2 (BB): Dziób 1, Nogi 1
-scenario_config = {
-    'beak_model': [0, 1, 1], 
-    'foot_model': [0, 0, 1], 
-    'beak_color': [-1], 
-    'eye_model':  [-1], 
-    'tail_model': [-1], 
-    'tail_color': [-1], 
-    'wing_model': [-1], 
-    'wing_color': [-1]
-}
+# scenario_config = {
+#     'beak_model': [0, 1, 1], 
+#     'foot_model': [0, 0, 1], 
+#     'beak_color': [-1], 
+#     'eye_model':  [-1], 
+#     'tail_model': [-1], 
+#     'tail_color': [-1], 
+#     'wing_model': [-1], 
+#     'wing_color': [-1]
+# }
 
 dep_features, froz_features = build_experiment_config(NUM_CLASSES, scenario_config)
 generate_json_dataset(dep_features, froz_features, SAMPLES_PER_CLASS, root_path=EXPERIMENT_FOLDER)

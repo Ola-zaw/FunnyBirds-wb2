@@ -163,6 +163,14 @@ def json_to_image(json, mode):
 
 def create_dataset(dataset_json, store_path, mode):
   for i,sample_json in enumerate(dataset_json):
+    # --- MECHANIZM WZNAWIANIA ---
+    path = os.path.join(store_path, str(sample_json['class_idx']))
+    plik_docelowy = path + '/' + str(i).zfill(6) + '.png'
+    
+    if os.path.exists(plik_docelowy):
+        print(f"Pomijam {i}, juz istnieje.")
+        continue  # Przeskakujemy do następnego ptaka!
+    # ----------------------------
     print(i)
     while True:
       img = json_to_image(sample_json, mode)
