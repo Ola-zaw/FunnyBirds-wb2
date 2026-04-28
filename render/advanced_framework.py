@@ -165,7 +165,7 @@ if __name__ == "__main__":
     
     # Wspólne parametry
     NUM_CLASSES = 2
-    SAMPLES_PER_CLASS = 100
+    SAMPLES_PER_CLASS = 1000
     
     # Cechy, które pozostają niezmienne w obu scenariuszach
     frozen_config = {
