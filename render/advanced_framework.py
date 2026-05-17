@@ -165,14 +165,14 @@ if __name__ == "__main__":
     
     # Wspólne parametry
     NUM_CLASSES = 2
-    SAMPLES_PER_CLASS = 100
+    SAMPLES_PER_CLASS = 1000
     
     # Cechy, które pozostają niezmienne w obu scenariuszach
     frozen_config = {
         'beak_color': -1,
+        'foot_model': -1,
         'eye_model':  -1, 
         'tail_model': -1, 
-        'tail_color': -1, 
         'wing_model': -1, 
         'wing_color': -1
     }
@@ -209,9 +209,9 @@ if __name__ == "__main__":
         0: { # Klasa 0
             'strength': 0.1, # 10% szans, że zależność w ogóle się aktywuje dla danego ptaka
             'primary_feature': 'beak_model',
-            'dependent_feature': 'foot_model',
+            'dependent_feature': 'tail_color',
             'forced_combo': {
-                0: 1 # JEŚLI wylosuje się beak01 (indeks 0) I aktywuje się siła (strength), to foot_model MUSI być foot02 (indeks 1)
+                0: 1 # JEŚLI wylosuje się beak01 (indeks 0) I aktywuje się siła (strength), to tail_color MUSI być tail02 (indeks 1)
             }
         },
         1: { # Klasa 1
