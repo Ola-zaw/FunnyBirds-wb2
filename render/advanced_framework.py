@@ -165,7 +165,7 @@ if __name__ == "__main__":
     
     # Wspólne parametry
     NUM_CLASSES = 2
-    SAMPLES_PER_CLASS = 200
+    SAMPLES_PER_CLASS = 1000
     
     # Cechy, które pozostają niezmienne w obu scenariuszach
     frozen_config = {
@@ -177,153 +177,153 @@ if __name__ == "__main__":
         'wing_color': -1
     }
 
-    # =================================================================
-    # POPRAWIONY KONFIG DLA HIERARCHII
-    # Mrozimy wszystko OPRÓCZ koloru skrzydeł i koloru dzioba
-    # =================================================================
-    frozen_config_hier = {
-        'beak_model': -1,
-        'foot_model': -1,
-        'eye_model':  -1,
-        'tail_model': -1,
-        'tail_color': -1,
-        'wing_model': -1
-    }
+    # # =================================================================
+    # # POPRAWIONY KONFIG DLA HIERARCHII
+    # # Mrozimy wszystko OPRÓCZ koloru skrzydeł i koloru dzioba
+    # # =================================================================
+    # frozen_config_hier = {
+    #     'beak_model': -1,
+    #     'foot_model': -1,
+    #     'eye_model':  -1,
+    #     'tail_model': -1,
+    #     'tail_color': -1,
+    #     'wing_model': -1
+    # }
 
-    # -----------------------------------------------------------------
-    # TEST 0: SIŁA 100%
-    # -----------------------------------------------------------------
-    hierarchical_100_config = {
-        0: { # Grupa kontrolna: Zawsze 0% siły, skrzydła i dziób losują się wolno
-            'strength': 0.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {}
-        },
-        1: { # Grupa badawcza: 100% siły
-            'strength': 1.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {0: 2, 1: 1}
-        }
-    }
+    # # -----------------------------------------------------------------
+    # # TEST 0: SIŁA 100%
+    # # -----------------------------------------------------------------
+    # hierarchical_100_config = {
+    #     0: { # Grupa kontrolna: Zawsze 0% siły, skrzydła i dziób losują się wolno
+    #         'strength': 0.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {}
+    #     },
+    #     1: { # Grupa badawcza: 100% siły
+    #         'strength': 1.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {0: 2, 1: 1}
+    #     }
+    # }
     
-    print("Generowanie datasetu metodą 2 (Hierarchiczna 100%)...")
-    generate_hierarchical_dataset(
-        hierarchy_rules=hierarchical_100_config, 
-        frozen_config=frozen_config_hier, 
-        num_classes=NUM_CLASSES, 
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_5b100"
-    )
+    # print("Generowanie datasetu metodą 2 (Hierarchiczna 100%)...")
+    # generate_hierarchical_dataset(
+    #     hierarchy_rules=hierarchical_100_config, 
+    #     frozen_config=frozen_config_hier, 
+    #     num_classes=NUM_CLASSES, 
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_5b100"
+    # )
 
-     # -----------------------------------------------------------------
-    # TEST 1: SIŁA 80%
-    # -----------------------------------------------------------------
-    hierarchical_80_config = {
-        0: { 
-            'strength': 0.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {}
-        },
-        1: { 
-            'strength': 0.8, # Zmieniamy tylko to!
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {0: 2, 1: 1}
-        }
-    }
+    #  # -----------------------------------------------------------------
+    # # TEST 1: SIŁA 80%
+    # # -----------------------------------------------------------------
+    # hierarchical_80_config = {
+    #     0: { 
+    #         'strength': 0.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {}
+    #     },
+    #     1: { 
+    #         'strength': 0.8, # Zmieniamy tylko to!
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {0: 2, 1: 1}
+    #     }
+    # }
     
-    print("Generowanie datasetu metodą 2 (Hierarchiczna 60%)...")
-    generate_hierarchical_dataset(
-        hierarchy_rules=hierarchical_80_config, 
-        frozen_config=frozen_config_hier, 
-        num_classes=NUM_CLASSES, 
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_5b80"
-    )
+    # print("Generowanie datasetu metodą 2 (Hierarchiczna 60%)...")
+    # generate_hierarchical_dataset(
+    #     hierarchy_rules=hierarchical_80_config, 
+    #     frozen_config=frozen_config_hier, 
+    #     num_classes=NUM_CLASSES, 
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_5b80"
+    # )
 
-    # -----------------------------------------------------------------
-    # TEST 2: SIŁA 60%
-    # -----------------------------------------------------------------
-    hierarchical_60_config = {
-        0: { 
-            'strength': 0.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {}
-        },
-        1: { 
-            'strength': 0.6, # Zmieniamy tylko to!
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {0: 2, 1: 1}
-        }
-    }
+    # # -----------------------------------------------------------------
+    # # TEST 2: SIŁA 60%
+    # # -----------------------------------------------------------------
+    # hierarchical_60_config = {
+    #     0: { 
+    #         'strength': 0.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {}
+    #     },
+    #     1: { 
+    #         'strength': 0.6, # Zmieniamy tylko to!
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {0: 2, 1: 1}
+    #     }
+    # }
     
-    print("Generowanie datasetu metodą 2 (Hierarchiczna 60%)...")
-    generate_hierarchical_dataset(
-        hierarchy_rules=hierarchical_60_config, 
-        frozen_config=frozen_config_hier, 
-        num_classes=NUM_CLASSES, 
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_5b60"
-    )
+    # print("Generowanie datasetu metodą 2 (Hierarchiczna 60%)...")
+    # generate_hierarchical_dataset(
+    #     hierarchy_rules=hierarchical_60_config, 
+    #     frozen_config=frozen_config_hier, 
+    #     num_classes=NUM_CLASSES, 
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_5b60"
+    # )
 
-    # -----------------------------------------------------------------
-    # TEST 3: SIŁA 40%
-    # -----------------------------------------------------------------
-    hierarchical_40_config = {
-        0: { 
-            'strength': 0.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {}
-        },
-        1: { 
-            'strength': 0.4, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {0: 2, 1: 1}
-        }
-    }
+    # # -----------------------------------------------------------------
+    # # TEST 3: SIŁA 40%
+    # # -----------------------------------------------------------------
+    # hierarchical_40_config = {
+    #     0: { 
+    #         'strength': 0.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {}
+    #     },
+    #     1: { 
+    #         'strength': 0.4, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {0: 2, 1: 1}
+    #     }
+    # }
     
-    print("Generowanie datasetu metodą 2 (Hierarchiczna 40%)...")
-    generate_hierarchical_dataset(
-        hierarchy_rules=hierarchical_40_config, 
-        frozen_config=frozen_config_hier, 
-        num_classes=NUM_CLASSES, 
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_5b40"
-    )
+    # print("Generowanie datasetu metodą 2 (Hierarchiczna 40%)...")
+    # generate_hierarchical_dataset(
+    #     hierarchy_rules=hierarchical_40_config, 
+    #     frozen_config=frozen_config_hier, 
+    #     num_classes=NUM_CLASSES, 
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_5b40"
+    # )
 
-    # -----------------------------------------------------------------
-    # TEST 4: SIŁA 20%
-    # -----------------------------------------------------------------
-    hierarchical_20_config = {
-        0: { 
-            'strength': 0.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {}
-        },
-        1: { 
-            'strength': 0.2, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {0: 2, 1: 1}
-        }
-    }
+    # # -----------------------------------------------------------------
+    # # TEST 4: SIŁA 20%
+    # # -----------------------------------------------------------------
+    # hierarchical_20_config = {
+    #     0: { 
+    #         'strength': 0.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {}
+    #     },
+    #     1: { 
+    #         'strength': 0.2, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {0: 2, 1: 1}
+    #     }
+    # }
     
-    print("Generowanie datasetu metodą 2 (Hierarchiczna 20%)...")
-    generate_hierarchical_dataset(
-        hierarchy_rules=hierarchical_20_config, 
-        frozen_config=frozen_config_hier, 
-        num_classes=NUM_CLASSES, 
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_5b20"
-    )
+    # print("Generowanie datasetu metodą 2 (Hierarchiczna 20%)...")
+    # generate_hierarchical_dataset(
+    #     hierarchy_rules=hierarchical_20_config, 
+    #     frozen_config=frozen_config_hier, 
+    #     num_classes=NUM_CLASSES, 
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_5b20"
+    # )
 
     # # -----------------------------------------------------------------
     # # SCENARIUSZ 1: Użycie prawdopodobieństw
@@ -555,29 +555,29 @@ if __name__ == "__main__":
     # # SCENARIUSZ 3: Probabilistyczny bez mrozenia cech
     # # klasa 0 i 1 różnią się tylko preferencjami co do oczu i nóg, a reszta cech zmienia sie losowo
     # # -----------------------------------------------------------------
-    # prob_complex_config = {
-    #     0: { # Klasa 0
-    #         # Preferuje oczy 01 (80%), rzadko 02 (20%), nigdy 03
-    #         'eye_model': {'options': [0, 1], 'probs': [0.8, 0.2]},
-    #         # Zawsze ma specyficzny zestaw nóg (np. fioletowe/krótkie - indeksy 0 i 1)
-    #         'foot_model': {'options': [0, 1], 'probs': [0.5, 0.5]}
-    #     },
-    #     1: { # Klasa 1
-    #         # Preferuje oczy 03 (80%), rzadko 02 (20%), nigdy 01
-    #         'eye_model': {'options': [2, 1], 'probs': [0.8, 0.2]},
-    #         # Zawsze ma inny zestaw nóg (indeksy 2 i 3)
-    #         'foot_model': {'options': [2, 3], 'probs': [0.5, 0.5]}
-    #     }
-    # }
+    prob_complex_config = {
+        0: { # Klasa 0
+            # Preferuje oczy 01 (80%), rzadko 02 (20%), nigdy 03
+            'eye_model': {'options': [0, 1], 'probs': [1.0, 0.0]},
+            # Zawsze ma specyficzny zestaw nóg (np. fioletowe/krótkie - indeksy 0 i 1)
+            'foot_model': {'options': [0, 1], 'probs': [0.5, 0.5]}
+        },
+        1: { # Klasa 1
+            # Preferuje oczy 03 (80%), rzadko 02 (20%), nigdy 01
+            'eye_model': {'options': [2, 1], 'probs': [1.0, 0.0]},
+            # Zawsze ma inny zestaw nóg (indeksy 2 i 3)
+            'foot_model': {'options': [2, 3], 'probs': [0.5, 0.5]}
+        }
+    }
     
-    # print("Generowanie datasetu 3 (Probabilistyczny - dużo zmiennych)...")
-    # generate_probabilistic_dataset(
-    #     prob_config=prob_complex_config, 
-    #     frozen_config=empty_frozen_config, 
-    #     num_classes=NUM_CLASSES, 
-    #     samples_per_class=SAMPLES_PER_CLASS, 
-    #     root_path="./testy_prob_szum"
-    # )
+    print("Generowanie datasetu 3 (Probabilistyczny - dużo zmiennych)...")
+    generate_probabilistic_dataset(
+        prob_config=prob_complex_config, 
+        frozen_config=empty_frozen_config, 
+        num_classes=NUM_CLASSES, 
+        samples_per_class=SAMPLES_PER_CLASS, 
+        root_path="./testy_prob100_szum"
+    )
 
     # # -----------------------------------------------------------------
     # # SCENARIUSZ 4: Hierarchiczny bez mrozenia cech
@@ -611,46 +611,46 @@ if __name__ == "__main__":
     #     root_path="./testy_hier_szum"
     # )
 
-    # =================================================================
-    # SCENARIUSZ: HIERARCHIA BASIC NA KOLORACH (3 KLASY)
-    # =================================================================
+    # # =================================================================
+    # # SCENARIUSZ: HIERARCHIA BASIC NA KOLORACH (3 KLASY)
+    # # =================================================================
     
-    # Mrozimy kształty i inne kolory, żeby model skupił się tylko na badanej relacji
-    frozen_config_kolory = {
-        'beak_model': -1,
-        'foot_model': -1,
-        'eye_model':  -1,
-        'tail_model': -1,
-        'tail_color': -1,
-        'wing_model': -1
-    }
+    # # Mrozimy kształty i inne kolory, żeby model skupił się tylko na badanej relacji
+    # frozen_config_kolory = {
+    #     'beak_model': -1,
+    #     'foot_model': -1,
+    #     'eye_model':  -1,
+    #     'tail_model': -1,
+    #     'tail_color': -1,
+    #     'wing_model': -1
+    # }
 
-    hierarchical_basic_colors_config = {
-        0: { # Klasa 0: Dziób 0 wtedy zawsze nogi 0 (Tłumaczenie: Skrzydła 0 -> zawsze Dziób 0)
-            'strength': 1.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {0: 0} # Czerwone skrzydła wymuszają żółty dziób
-        },
-        1: { # Klasa 1: Dziób 1 wtedy zawsze nogi 0 (Tłumaczenie: Skrzydła 1 -> zawsze Dziób 0)
-            'strength': 1.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {1: 0} # Zielone skrzydła wymuszają żółty dziób
-        },
-        2: { # Klasa 2: Dziób 1 wtedy zawsze nogi 1 (Tłumaczenie: Skrzydła 1 -> zawsze Dziób 1)
-            'strength': 1.0, 
-            'primary_feature': 'wing_color',
-            'dependent_feature': 'beak_color',
-            'forced_combo': {1: 1} # Zielone skrzydła wymuszają czarny dziób
-        }
-    }
+    # hierarchical_basic_colors_config = {
+    #     0: { # Klasa 0: Dziób 0 wtedy zawsze nogi 0 (Tłumaczenie: Skrzydła 0 -> zawsze Dziób 0)
+    #         'strength': 1.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {0: 0} # Czerwone skrzydła wymuszają żółty dziób
+    #     },
+    #     1: { # Klasa 1: Dziób 1 wtedy zawsze nogi 0 (Tłumaczenie: Skrzydła 1 -> zawsze Dziób 0)
+    #         'strength': 1.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {1: 0} # Zielone skrzydła wymuszają żółty dziób
+    #     },
+    #     2: { # Klasa 2: Dziób 1 wtedy zawsze nogi 1 (Tłumaczenie: Skrzydła 1 -> zawsze Dziób 1)
+    #         'strength': 1.0, 
+    #         'primary_feature': 'wing_color',
+    #         'dependent_feature': 'beak_color',
+    #         'forced_combo': {1: 1} # Zielone skrzydła wymuszają czarny dziób
+    #     }
+    # }
     
-    print("Generowanie datasetu: Hierarchia Basic na kolorach (3 klasy)...")
-    generate_hierarchical_dataset(
-        hierarchy_rules=hierarchical_basic_colors_config, 
-        frozen_config=frozen_config_kolory, 
-        num_classes=3, # <-- WAŻNE: Wymuszamy 3 klasy dla tego konkretnego zbioru!
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_hierarchia_kolory"
-    )
+    # print("Generowanie datasetu: Hierarchia Basic na kolorach (3 klasy)...")
+    # generate_hierarchical_dataset(
+    #     hierarchy_rules=hierarchical_basic_colors_config, 
+    #     frozen_config=frozen_config_kolory, 
+    #     num_classes=3, # <-- WAŻNE: Wymuszamy 3 klasy dla tego konkretnego zbioru!
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_hierarchia_kolory"
+    # )
