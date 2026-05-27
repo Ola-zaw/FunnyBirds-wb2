@@ -164,18 +164,18 @@ def generate_hierarchical_dataset(hierarchy_rules, frozen_config, num_classes, s
 if __name__ == "__main__":
     
     # Wspólne parametry
-    NUM_CLASSES = 2
-    SAMPLES_PER_CLASS = 1000
+    # NUM_CLASSES = 2
+    # SAMPLES_PER_CLASS = 1000
     
     # Cechy, które pozostają niezmienne w obu scenariuszach
-    frozen_config = {
-        'beak_color': -1,
-        'foot_model': -1,
-        'eye_model':  -1, 
-        'tail_model': -1, 
-        'wing_model': -1, 
-        'wing_color': -1
-    }
+    # frozen_config = {
+    #     'beak_color': -1,
+    #     'foot_model': -1,
+    #     'eye_model':  -1, 
+    #     'tail_model': -1, 
+    #     'wing_model': -1, 
+    #     'wing_color': -1
+    # }
 
     # # =================================================================
     # # POPRAWIONY KONFIG DLA HIERARCHII
@@ -512,72 +512,72 @@ if __name__ == "__main__":
     # )
 
 
-    frozen_config_bez_szumu = {
-        'beak_model': -1,
-        'beak_color': -1,
-        'tail_model': -1,
-        'tail_color': -1,
-        'wing_model': -1,
-        'wing_color': -1
-    }    
+    # frozen_config_bez_szumu = {
+    #     'beak_model': -1,
+    #     'beak_color': -1,
+    #     'tail_model': -1,
+    #     'tail_color': -1,
+    #     'wing_model': -1,
+    #     'wing_color': -1
+    # }    
       # -----------------------------------------------------------------
     # SCENARIUSZ 3: Probabilistyczny bez szumu
     # klasa 0 i 1 różnią się tylko preferencjami co do oczu i nóg, a reszta cech zmienia sie losowo
     # -----------------------------------------------------------------
-    prob_complex_config = {
-        0: { # Klasa 0
-            # Preferuje oczy 01 (80%), rzadko 02 (20%), nigdy 03
-            'eye_model': {'options': [0, 1], 'probs': [0.8, 0.2]},
-            # Zawsze ma specyficzny zestaw nóg (np. fioletowe/krótkie - indeksy 0 i 1)
-            'foot_model': {'options': [0, 1], 'probs': [0.5, 0.5]}
-        },
-        1: { # Klasa 1
-            # Preferuje oczy 03 (80%), rzadko 02 (20%), nigdy 01
-            'eye_model': {'options': [2, 1], 'probs': [0.8, 0.2]},
-            # Zawsze ma inny zestaw nóg (indeksy 2 i 3)
-            'foot_model': {'options': [2, 3], 'probs': [0.5, 0.5]}
-        }
-    }
+    # prob_complex_config = {
+    #     0: { # Klasa 0
+    #         # Preferuje oczy 01 (80%), rzadko 02 (20%), nigdy 03
+    #         'eye_model': {'options': [0, 1], 'probs': [0.8, 0.2]},
+    #         # Zawsze ma specyficzny zestaw nóg (np. fioletowe/krótkie - indeksy 0 i 1)
+    #         'foot_model': {'options': [0, 1], 'probs': [0.5, 0.5]}
+    #     },
+    #     1: { # Klasa 1
+    #         # Preferuje oczy 03 (80%), rzadko 02 (20%), nigdy 01
+    #         'eye_model': {'options': [2, 1], 'probs': [0.8, 0.2]},
+    #         # Zawsze ma inny zestaw nóg (indeksy 2 i 3)
+    #         'foot_model': {'options': [2, 3], 'probs': [0.5, 0.5]}
+    #     }
+    # }
     
-    print("Generowanie datasetu 3 (Probabilistyczny - dużo zmiennych)...")
-    generate_probabilistic_dataset(
-        prob_config=prob_complex_config, 
-        frozen_config=frozen_config_bez_szumu, 
-        num_classes=NUM_CLASSES, 
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_4b"
-    )
+    # print("Generowanie datasetu 3 (Probabilistyczny - dużo zmiennych)...")
+    # generate_probabilistic_dataset(
+    #     prob_config=prob_complex_config, 
+    #     frozen_config=frozen_config_bez_szumu, 
+    #     num_classes=NUM_CLASSES, 
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_4b"
+    # )
 
-    empty_frozen_config = {}
+    # empty_frozen_config = {}
 
 
     # # -----------------------------------------------------------------
     # # SCENARIUSZ 3: Probabilistyczny bez mrozenia cech
     # # klasa 0 i 1 różnią się tylko preferencjami co do oczu i nóg, a reszta cech zmienia sie losowo
     # # -----------------------------------------------------------------
-    prob_complex_config = {
-        0: { # Klasa 0
-            # Preferuje oczy 01 (80%), rzadko 02 (20%), nigdy 03
-            'eye_model': {'options': [0, 1], 'probs': [1.0, 0.0]},
-            # Zawsze ma specyficzny zestaw nóg (np. fioletowe/krótkie - indeksy 0 i 1)
-            'foot_model': {'options': [0, 1], 'probs': [0.5, 0.5]}
-        },
-        1: { # Klasa 1
-            # Preferuje oczy 03 (80%), rzadko 02 (20%), nigdy 01
-            'eye_model': {'options': [2, 1], 'probs': [1.0, 0.0]},
-            # Zawsze ma inny zestaw nóg (indeksy 2 i 3)
-            'foot_model': {'options': [2, 3], 'probs': [0.5, 0.5]}
-        }
-    }
+    # prob_complex_config = {
+    #     0: { # Klasa 0
+    #         # Preferuje oczy 01 (80%), rzadko 02 (20%), nigdy 03
+    #         'eye_model': {'options': [0, 1], 'probs': [1.0, 0.0]},
+    #         # Zawsze ma specyficzny zestaw nóg (np. fioletowe/krótkie - indeksy 0 i 1)
+    #         'foot_model': {'options': [0, 1], 'probs': [0.5, 0.5]}
+    #     },
+    #     1: { # Klasa 1
+    #         # Preferuje oczy 03 (80%), rzadko 02 (20%), nigdy 01
+    #         'eye_model': {'options': [2, 1], 'probs': [1.0, 0.0]},
+    #         # Zawsze ma inny zestaw nóg (indeksy 2 i 3)
+    #         'foot_model': {'options': [2, 3], 'probs': [0.5, 0.5]}
+    #     }
+    # }
     
-    print("Generowanie datasetu 3 (Probabilistyczny - dużo zmiennych)...")
-    generate_probabilistic_dataset(
-        prob_config=prob_complex_config, 
-        frozen_config=empty_frozen_config, 
-        num_classes=NUM_CLASSES, 
-        samples_per_class=SAMPLES_PER_CLASS, 
-        root_path="./testy_prob100_szum"
-    )
+    # print("Generowanie datasetu 3 (Probabilistyczny - dużo zmiennych)...")
+    # generate_probabilistic_dataset(
+    #     prob_config=prob_complex_config, 
+    #     frozen_config=empty_frozen_config, 
+    #     num_classes=NUM_CLASSES, 
+    #     samples_per_class=SAMPLES_PER_CLASS, 
+    #     root_path="./testy_prob100_szum"
+    # )
 
     # # -----------------------------------------------------------------
     # # SCENARIUSZ 4: Hierarchiczny bez mrozenia cech
@@ -654,3 +654,107 @@ if __name__ == "__main__":
     #     samples_per_class=SAMPLES_PER_CLASS, 
     #     root_path="./testy_hierarchia_kolory"
     # )
+
+    # =================================================================
+    # SCENARIUSZ: BASIC Z PROBABILISTYKĄ SKRZYDEŁ (3 KLASY)
+    # =================================================================
+    
+    # Mrozimy wszystko OPRÓCZ dzioba, nóg i koloru skrzydeł, 
+    # ponieważ te 3 cechy będziemy konfigurować poniżej.
+    frozen_config_3klasy = {
+        'beak_color': -1,
+        'eye_model':  -1,
+        'tail_model': -1,
+        'tail_color': -1,
+        'wing_model': -1
+    }
+
+    prob_basic_colors_config = {
+        0: { # KLASA 0
+            'beak_model': {'options': [0], 'probs': [1.0]}, # Zawsze dziób 0
+            'foot_model': {'options': [0], 'probs': [1.0]}, # Zawsze nogi 0
+            # Skrzydła: 80% Kolor 0, 20% losowo z pozostałych dwóch (czyli po 10%)
+            'wing_color': {'options': [0, 1, 2], 'probs': [0.8, 0.1, 0.1]} 
+        },
+        1: { # KLASA 1
+            'beak_model': {'options': [1], 'probs': [1.0]}, # Zawsze dziób 1
+            'foot_model': {'options': [0], 'probs': [1.0]}, # Zawsze nogi 0
+            # Skrzydła: 80% Kolor 1, reszta po 10%
+            'wing_color': {'options': [1, 0, 2], 'probs': [0.8, 0.1, 0.1]}
+        },
+        2: { # KLASA 2
+            'beak_model': {'options': [1], 'probs': [1.0]}, # Zawsze dziób 1
+            'foot_model': {'options': [1], 'probs': [1.0]}, # Zawsze nogi 1
+            # Skrzydła: 80% Kolor 2, reszta po 10%
+            'wing_color': {'options': [2, 0, 1], 'probs': [0.8, 0.1, 0.1]}
+        }
+    }
+    
+    print("Generowanie datasetu: Basic + Probabilistyka skrzydeł (3 klasy)...")
+    generate_probabilistic_dataset(
+        prob_config=prob_basic_colors_config, 
+        frozen_config=frozen_config_3klasy, 
+        num_classes=3,
+        samples_per_class=1000, 
+        root_path="./testy_basic_hierarchia80"
+    )
+
+    prob_basic_colors_config = {
+        0: { # KLASA 0
+            'beak_model': {'options': [0], 'probs': [1.0]}, # Zawsze dziób 0
+            'foot_model': {'options': [0], 'probs': [1.0]}, # Zawsze nogi 0
+            # Skrzydła: 80% Kolor 0, 20% losowo z pozostałych dwóch (czyli po 10%)
+            'wing_color': {'options': [0, 1, 2], 'probs': [1.0, 0.0, 0.0]} 
+        },
+        1: { # KLASA 1
+            'beak_model': {'options': [1], 'probs': [1.0]}, # Zawsze dziób 1
+            'foot_model': {'options': [0], 'probs': [1.0]}, # Zawsze nogi 0
+            # Skrzydła: 80% Kolor 1, reszta po 10%
+            'wing_color': {'options': [1, 0, 2], 'probs': [1.0, 0.0, 0.0]}
+        },
+        2: { # KLASA 2
+            'beak_model': {'options': [1], 'probs': [1.0]}, # Zawsze dziób 1
+            'foot_model': {'options': [1], 'probs': [1.0]}, # Zawsze nogi 1
+            # Skrzydła: 80% Kolor 2, reszta po 10%
+            'wing_color': {'options': [2, 0, 1], 'probs': [1.0, 0.1, 0.1]}
+        }
+    }
+    
+    print("Generowanie datasetu: Basic + Probabilistyka skrzydeł (3 klasy)...")
+    generate_probabilistic_dataset(
+        prob_config=prob_basic_colors_config, 
+        frozen_config=frozen_config_3klasy, 
+        num_classes=3,
+        samples_per_class=1000, 
+        root_path="./testy_basic_hierarchia100"
+    )
+
+    prob_basic_colors_config = {
+        0: { # KLASA 0
+            'beak_model': {'options': [0], 'probs': [1.0]}, # Zawsze dziób 0
+            'foot_model': {'options': [0], 'probs': [1.0]}, # Zawsze nogi 0
+            # Skrzydła: 80% Kolor 0, 20% losowo z pozostałych dwóch (czyli po 10%)
+            'wing_color': {'options': [0, 1, 2], 'probs': [0.6, 0.2, 0.2]} 
+        },
+        1: { # KLASA 1
+            'beak_model': {'options': [1], 'probs': [1.0]}, # Zawsze dziób 1
+            'foot_model': {'options': [0], 'probs': [1.0]}, # Zawsze nogi 0
+            # Skrzydła: 80% Kolor 1, reszta po 10%
+            'wing_color': {'options': [1, 0, 2], 'probs': [0.6, 0.2, 0.2]}
+        },
+        2: { # KLASA 2
+            'beak_model': {'options': [1], 'probs': [1.0]}, # Zawsze dziób 1
+            'foot_model': {'options': [1], 'probs': [1.0]}, # Zawsze nogi 1
+            # Skrzydła: 80% Kolor 2, reszta po 10%
+            'wing_color': {'options': [2, 0, 1], 'probs': [0.6, 0.2, 0.2]}
+        }
+    }
+    
+    print("Generowanie datasetu: Basic + Probabilistyka skrzydeł (3 klasy)...")
+    generate_probabilistic_dataset(
+        prob_config=prob_basic_colors_config, 
+        frozen_config=frozen_config_3klasy, 
+        num_classes=3,
+        samples_per_class=1000, 
+        root_path="./testy_basic_hierarchia60"
+    )
